@@ -1,0 +1,36 @@
+
+> prediction-price-car-website@0.1.0 dev C:\Users\ACER\Documents\_Study\_Informatika\Semester 6\Data Science\UAS\project-uas\prediction-price-car-website
+> next dev "--hostname" "127.0.0.1" "--port" "3000"
+
+   ▲ Next.js 15.5.18
+   - Local:        http://127.0.0.1:3000
+   - Network:      http://127.0.0.1:3000
+
+ ✓ Starting...
+ ✓ Ready in 9.2s
+ ○ Compiling / ...
+ ✓ Compiled / in 40.4s (1169 modules)
+ GET / 200 in 1249ms
+ ✓ Compiled in 16.8s (1151 modules)
+ GET / 200 in 3618ms
+ GET / 200 in 2101ms
+ ○ Compiling /dashboard ...
+ ✓ Compiled /dashboard in 45.2s (2261 modules)
+ GET /dashboard 200 in 14820ms
+ ○ Compiling /history ...
+ ✓ Compiled /history in 15.8s (2284 modules)
+ GET /history 200 in 19382ms
+ GET /dashboard 200 in 17954ms
+ GET /about 200 in 19707ms
+ ✓ Compiled in 6.2s (2298 modules)
+ GET /dashboard 200 in 4241ms
+ GET /dashboard 200 in 5582ms
+ ○ Compiling /favicon.ico ...
+ ✓ Compiled /favicon.ico in 14.6s (1249 modules)
+ GET /favicon.ico 500 in 17681ms
+ ✓ Compiled in 10.4s (2281 modules)
+ ✓ Compiled in 4.1s (2281 modules)
+ GET /dashboard 200 in 1371ms
+ GET /dashboard 200 in 134ms
+ ✓ Compiled in 22.9s (2281 modules)
+ GET /dashboard 200 in 1774ms
