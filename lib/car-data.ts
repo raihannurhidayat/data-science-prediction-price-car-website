@@ -1,7 +1,6 @@
-// export const API_BASE_URL =
-//   process.env.NEXT_PUBLIC_API_URL ?? "https://data-science-prediction-price-car-system.vercel.app";
-
-export const API_BASE_URL = "http://localhost:8080";
+export const API_BASE_URL =
+  process.env.NEXT_PUBLIC_API_URL ??
+  "https://data-science-prediction-price-car-s.vercel.app";
 
 export type FeatureKey =
   | "Engine_size"
