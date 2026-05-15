@@ -1,6 +1,14 @@
 "use client";
 
-import { Bar, BarChart, CartesianGrid, Scatter, ScatterChart, XAxis, YAxis } from "recharts";
+import {
+  Bar,
+  BarChart,
+  CartesianGrid,
+  Scatter,
+  ScatterChart,
+  XAxis,
+  YAxis,
+} from "recharts";
 import { Badge } from "@/components/ui/badge";
 import {
   Card,
@@ -9,7 +17,12 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart";
+import {
+  ChartConfig,
+  ChartContainer,
+  ChartTooltip,
+  ChartTooltipContent,
+} from "@/components/ui/chart";
 import {
   Table,
   TableBody,
@@ -18,7 +31,12 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { featureScatter, modelMetrics, priceDistribution, topCars } from "@/lib/car-data";
+import {
+  featureScatter,
+  modelMetrics,
+  priceDistribution,
+  topCars,
+} from "@/lib/car-data";
 
 const priceChartConfig = {
   cars: {
@@ -39,10 +57,14 @@ export function DashboardContent() {
     <main className="flex-1 bg-muted/30">
       <section className="mx-auto flex w-full max-w-7xl flex-col gap-6 px-4 py-6 sm:px-6 lg:px-8">
         <div className="flex flex-col gap-2">
-          <Badge className="w-fit" variant="secondary">Dataset Insight</Badge>
-          <h1 className="text-3xl font-semibold tracking-tight">Dashboard Statistik</h1>
+          <Badge className="w-fit" variant="secondary">
+            Dataset Insight
+          </Badge>
+          <h1 className="text-3xl font-semibold tracking-tight">
+            Dashboard Statistik
+          </h1>
           <p className="max-w-2xl text-muted-foreground">
-            Ringkasan visual untuk menjelaskan data dan performa model saat demo UAS.
+            Ringkasan visualisasi data dan performa model.
           </p>
         </div>
 
@@ -64,15 +86,28 @@ export function DashboardContent() {
           <Card>
             <CardHeader>
               <CardTitle>Distribusi Harga Mobil</CardTitle>
-              <CardDescription>Histogram harga dari dataset car sales.</CardDescription>
+              <CardDescription>
+                Histogram harga dari dataset car sales.
+              </CardDescription>
             </CardHeader>
             <CardContent>
-              <ChartContainer config={priceChartConfig} className="min-h-72 w-full">
+              <ChartContainer
+                config={priceChartConfig}
+                className="min-h-72 w-full"
+              >
                 <BarChart data={priceDistribution} accessibilityLayer>
                   <CartesianGrid vertical={false} />
-                  <XAxis dataKey="range" tickLine={false} axisLine={false} tickMargin={10} />
+                  <XAxis
+                    dataKey="range"
+                    tickLine={false}
+                    axisLine={false}
+                    tickMargin={10}
+                  />
                   <YAxis tickLine={false} axisLine={false} width={36} />
-                  <ChartTooltip cursor={false} content={<ChartTooltipContent hideLabel />} />
+                  <ChartTooltip
+                    cursor={false}
+                    content={<ChartTooltipContent hideLabel />}
+                  />
                   <Bar dataKey="cars" fill="var(--color-cars)" radius={6} />
                 </BarChart>
               </ChartContainer>
@@ -82,10 +117,15 @@ export function DashboardContent() {
           <Card>
             <CardHeader>
               <CardTitle>Horsepower vs Harga</CardTitle>
-              <CardDescription>Contoh hubungan fitur teknis dengan harga mobil.</CardDescription>
+              <CardDescription>
+                Contoh hubungan fitur teknis dengan harga mobil.
+              </CardDescription>
             </CardHeader>
             <CardContent>
-              <ChartContainer config={scatterChartConfig} className="min-h-72 w-full">
+              <ChartContainer
+                config={scatterChartConfig}
+                className="min-h-72 w-full"
+              >
                 <ScatterChart data={featureScatter} accessibilityLayer>
                   <CartesianGrid />
                   <XAxis
@@ -107,7 +147,10 @@ export function DashboardContent() {
                     unit="k"
                     width={38}
                   />
-                  <ChartTooltip cursor={false} content={<ChartTooltipContent />} />
+                  <ChartTooltip
+                    cursor={false}
+                    content={<ChartTooltipContent />}
+                  />
                   <Scatter dataKey="price" fill="var(--color-price)" />
                 </ScatterChart>
               </ChartContainer>
@@ -118,7 +161,9 @@ export function DashboardContent() {
         <Card>
           <CardHeader>
             <CardTitle>Top 10 Mobil Terlaris</CardTitle>
-            <CardDescription>Data statis untuk mendukung narasi dataset saat presentasi.</CardDescription>
+            <CardDescription>
+              Data statis untuk mendukung narasi dataset saat presentasi.
+            </CardDescription>
           </CardHeader>
           <CardContent>
             <div className="overflow-x-auto">
@@ -135,7 +180,9 @@ export function DashboardContent() {
                     <TableRow key={car.model}>
                       <TableCell className="font-medium">{car.model}</TableCell>
                       <TableCell>{car.segment}</TableCell>
-                      <TableCell className="text-right tabular-nums">{car.sales.toLocaleString("en-US")}</TableCell>
+                      <TableCell className="text-right tabular-nums">
+                        {car.sales.toLocaleString("en-US")}
+                      </TableCell>
                     </TableRow>
                   ))}
                 </TableBody>
