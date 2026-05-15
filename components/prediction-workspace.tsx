@@ -457,7 +457,7 @@ export function PredictionWorkspace() {
             <CardHeader>
               <CardTitle>Sistem ini dibuat oleh</CardTitle>
               <CardDescription>
-                Identitas pembuat dapat disesuaikan di halaman About.
+                {/* Identitas pembuat dapat disesuaikan di halaman About. */}
               </CardDescription>
             </CardHeader>
             <CardContent className="grid gap-3 text-sm sm:grid-cols-2">
@@ -466,17 +466,18 @@ export function PredictionWorkspace() {
                 <p className="font-medium">Muhamad Raihan Nurhidayat</p>
               </div>
               <div>
-                <p className="text-muted-foreground">Project</p>
-                <p className="font-medium">Prediction Price Car System</p>
-              </div>
-              <div>
                 <p className="text-muted-foreground">NPM</p>
                 <p className="font-medium">237006108</p>
+              </div>
+              <div>
+                <p className="text-muted-foreground">Project</p>
+                <p className="font-medium">Prediction Price Car System</p>
               </div>
             </CardContent>
             <Separator />
             <CardFooter className="text-sm text-muted-foreground">
-              Next.js 15, shadcn/ui, Sonner, dan Flask Linear Regression API.
+              Next.js 15, Tailwind, shadcn/ui dan terintegrasi dengan API yang
+              dibangun menggunakan Flask.
             </CardFooter>
           </Card>
         </div>

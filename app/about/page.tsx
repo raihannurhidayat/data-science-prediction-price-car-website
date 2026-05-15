@@ -95,7 +95,7 @@ export default function AboutPage() {
             <CardHeader>
               <CardTitle>Integrasi API</CardTitle>
               <CardDescription>
-                Frontend mengonsumsi endpoint Flask yang sudah tersedia.
+                Website memakai endpoint Flask yang sudah tersedia.
               </CardDescription>
             </CardHeader>
             <CardContent className="flex flex-col gap-3 text-sm">
@@ -119,27 +119,48 @@ export default function AboutPage() {
               <CardTitle>Creator</CardTitle>
               <CardDescription></CardDescription>
             </CardHeader>
-            <CardContent className="flex flex-col gap-4">
-              <div>
-                <p className="text-sm text-muted-foreground">Nama</p>
-                <p className="font-medium">Muhamad Raihan Nurhidayat</p>
+            <CardContent className="grid md:grid-cols-2 md:gap-4">
+              <div className="space-y-2">
+                <div>
+                  <p className="text-sm text-muted-foreground">Nama</p>
+                  <p className="font-medium">Muhamad Raihan Nurhidayat</p>
+                </div>
+                <div>
+                  <p className="text-sm text-muted-foreground">NPM</p>
+                  <p className="font-medium">237006108</p>
+                </div>
+                <div>
+                  <p className="text-sm text-muted-foreground">Mata Kuliah</p>
+                  <p className="font-medium">Sains Data - Semester 6</p>
+                </div>
               </div>
-              <div>
-                <p className="text-sm text-muted-foreground">Mata Kuliah</p>
-                <p className="font-medium">Sains Data - Semester 6</p>
-              </div>
-              <div>
-                <p className="text-sm text-muted-foreground">
-                  Repository Backend
-                </p>
-                <Link
-                  className="font-medium underline underline-offset-4"
-                  href="https://github.com/mraihannurhidayat/prediction-price-car-system"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  prediction-price-car-system
-                </Link>
+              <div className="space-y-2">
+                <div>
+                  <p className="text-sm text-muted-foreground">
+                    Repository Backend
+                  </p>
+                  <Link
+                    className="font-medium underline underline-offset-4"
+                    href="https://github.com/raihannurhidayat/data-science-prediction-price-car-system"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    prediction-price-car-system
+                  </Link>
+                </div>
+                <div>
+                  <p className="text-sm text-muted-foreground">
+                    Frontend Backend
+                  </p>
+                  <Link
+                    className="font-medium underline underline-offset-4"
+                    href="https://github.com/raihannurhidayat/data-science-prediction-price-car-website"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    prediction-price-car-website
+                  </Link>
+                </div>
               </div>
             </CardContent>
           </Card>
