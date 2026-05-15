@@ -210,10 +210,12 @@ export function SiteHeader() {
         </nav>
       </div>
       {health !== "online" && (
-        <div className="fixed inset-0 z-[60] flex items-center justify-center bg-background/85 backdrop-blur-sm">
+        <div className="fixed inset-0 z-60 flex items-center justify-center bg-background/85 backdrop-blur-sm">
           <div className="flex min-w-64 items-center gap-3 rounded-xl border bg-card px-4 py-3 shadow-lg">
             <Spinner className="size-5" />
-            <p className="text-sm font-medium text-foreground">{loadingMessage}</p>
+            <p className="text-sm font-medium text-foreground">
+              {loadingMessage}
+            </p>
           </div>
         </div>
       )}
