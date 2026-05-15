@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { Spinner } from "@/components/ui/spinner";
 import {
   Tooltip,
   TooltipContent,
@@ -39,19 +40,48 @@ export function SiteHeader() {
   const navWrapperRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const controller = new AbortController();
-    const timer = window.setTimeout(() => controller.abort(), 6000);
+    let isCancelled = false;
+    let retryTimer: number | undefined;
+    let activeController: AbortController | null = null;
 
-    fetch(`${API_BASE_URL}/health`, { signal: controller.signal })
-      .then((response) => {
-        setHealth(response.ok ? "online" : "offline");
-      })
-      .catch(() => setHealth("offline"))
-      .finally(() => window.clearTimeout(timer));
+    const checkHealth = async () => {
+      const controller = new AbortController();
+      activeController = controller;
+      const timeoutTimer = window.setTimeout(() => controller.abort(), 6000);
+
+      try {
+        const response = await fetch(`${API_BASE_URL}/health`, {
+          signal: controller.signal,
+          cache: "no-store",
+        });
+
+        if (isCancelled) return;
+
+        if (response.ok) {
+          setHealth("online");
+          return;
+        }
+
+        setHealth("offline");
+      } catch {
+        if (!isCancelled) {
+          setHealth("offline");
+        }
+      } finally {
+        window.clearTimeout(timeoutTimer);
+      }
+
+      if (!isCancelled) {
+        retryTimer = window.setTimeout(checkHealth, 2500);
+      }
+    };
+
+    void checkHealth();
 
     return () => {
-      controller.abort();
-      window.clearTimeout(timer);
+      isCancelled = true;
+      activeController?.abort();
+      window.clearTimeout(retryTimer);
     };
   }, []);
 
@@ -81,6 +111,11 @@ export function SiteHeader() {
     if (health === "online") return "API Online";
     return "API Offline";
   }, [health]);
+
+  const loadingMessage =
+    health === "offline"
+      ? "API belum terhubung. Mencoba ulang..."
+      : "Menghubungkan ke API...";
 
   return (
     <header className="sticky top-0 z-40 border-b bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/80">
@@ -174,6 +209,14 @@ export function SiteHeader() {
           </TooltipProvider>
         </nav>
       </div>
+      {health !== "online" && (
+        <div className="fixed inset-0 z-[60] flex items-center justify-center bg-background/85 backdrop-blur-sm">
+          <div className="flex min-w-64 items-center gap-3 rounded-xl border bg-card px-4 py-3 shadow-lg">
+            <Spinner className="size-5" />
+            <p className="text-sm font-medium text-foreground">{loadingMessage}</p>
+          </div>
+        </div>
+      )}
     </header>
   );
 }
