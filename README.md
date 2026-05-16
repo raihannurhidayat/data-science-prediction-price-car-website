@@ -8,7 +8,7 @@
 
 > Frontend interaktif untuk memprediksi harga mobil berbasis model Linear Regression melalui integrasi API Flask.
 
-Project ini adalah aplikasi web Next.js (App Router) untuk demo sistem prediksi harga mobil pada konteks UAS Sains Data. Pengguna mengisi 8 fitur teknis kendaraan, lalu aplikasi mengirim request ke endpoint prediksi dan menampilkan estimasi harga dalam USD.
+Project ini adalah aplikasi web Next.js (App Router) untuk demo sistem prediksi harga mobil pada konteks project akhir Sains Data. Pengguna mengisi 8 fitur teknis kendaraan, lalu aplikasi mengirim request ke endpoint prediksi dan menampilkan estimasi harga dalam USD.
 
 Selain form prediksi, aplikasi menyediakan dashboard visual untuk insight dataset, halaman riwayat prediksi yang tersimpan di browser (localStorage), serta halaman informasi metodologi. UI dibangun menggunakan shadcn/ui + Tailwind CSS dan sudah dioptimalkan untuk desktop maupun mobile.
 
